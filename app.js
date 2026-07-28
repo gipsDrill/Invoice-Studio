@@ -926,7 +926,7 @@
     if ($('#serviceDateFieldLabel')) $('#serviceDateFieldLabel').textContent = profile.serviceLabel || 'Service date';
   }
 
-  function updateStepper() {
+  function updateStepper(scrollToTop = false) {
     $$('.step-tab').forEach((tab) => {
       const step = Number(tab.dataset.step);
       tab.classList.toggle('active', step === state.currentStep);
@@ -939,7 +939,7 @@
     $('#nextStep').innerHTML = state.currentStep === 5 ? 'Download PDF <span aria-hidden="true">↓</span>' : 'Next <span aria-hidden="true">→</span>';
     const labelsByStep = ['Choose a document type and billing mode', 'Choose a template and visible elements', 'Complete the core details', 'Add items and review the values', 'Review your document and download it'];
     $('#stepActionLabel').textContent = labelsByStep[state.currentStep - 1];
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (scrollToTop) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function renderAll() {
@@ -1461,8 +1461,8 @@
       if (target.dataset.template) { state.template = target.dataset.template; renderTemplates(); updatePreview(); saveState(); return; }
       if (target.dataset.accent) { state.accent = normalizeHexColour(target.dataset.accent) || '#4f46e5'; renderTemplates(); updatePreview(); saveState(); return; }
       if (target.dataset.logoPreset) { applyLogoPreset(target.dataset.logoPreset); return; }
-      if (target.dataset.step) { state.currentStep = Number(target.dataset.step); updateStepper(); return; }
-      if (target.dataset.jumpStep) { state.currentStep = Number(target.dataset.jumpStep); updateStepper(); return; }
+      if (target.dataset.step) { state.currentStep = Number(target.dataset.step); updateStepper(true); return; }
+      if (target.dataset.jumpStep) { state.currentStep = Number(target.dataset.jumpStep); updateStepper(true); return; }
       if (target.dataset.dueDays !== undefined) {
         const value = target.dataset.dueDays;
         $$('.quick-due-row button').forEach((button) => button.classList.toggle('active', button === target));
@@ -1486,7 +1486,7 @@
       const action = target.dataset.action;
       if (!action) return;
       if (action === 'new-document') await newDocument();
-      else if (action === 'go-start') { state.currentStep = 1; updateStepper(); }
+      else if (action === 'go-start') { state.currentStep = 1; updateStepper(true); }
       else if (action === 'quick-add-item') quickAddItem();
       else if (action === 'add-empty-item') addItem({ description: 'New item', quantity: 1, unit: 'item', rate: 0 });
       else if (action === 'clear-items') { if (await confirmAction('Clear all line items?', 'All other document details will stay unchanged.')) { state.items = []; renderItems(); updatePreview(); saveState(); } }
@@ -1565,8 +1565,8 @@
       saveState(true);
     });
 
-    $('#prevStep').addEventListener('click', () => { state.currentStep = Math.max(1, state.currentStep - 1); updateStepper(); });
-    $('#nextStep').addEventListener('click', async () => { if (state.currentStep === 5) await doExport('pdf'); else { state.currentStep = Math.min(5, state.currentStep + 1); updateStepper(); } });
+    $('#prevStep').addEventListener('click', () => { state.currentStep = Math.max(1, state.currentStep - 1); updateStepper(true); });
+    $('#nextStep').addEventListener('click', async () => { if (state.currentStep === 5) await doExport('pdf'); else { state.currentStep = Math.min(5, state.currentStep + 1); updateStepper(true); } });
 
     let previewResizeFrame = 0;
     window.addEventListener('resize', () => {

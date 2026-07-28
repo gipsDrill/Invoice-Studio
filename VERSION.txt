@@ -1,1 +1,1 @@
-Invoice Studio 1.11.5 — Mobile Preview & Clean Defaults
+Invoice Studio 1.11.6 — Selection Scroll Fix
