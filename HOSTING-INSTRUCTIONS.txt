@@ -1,0 +1,44 @@
+INVOICE STUDIO 1.11.1 — PUBLIKACJA STRONY
+==================================================
+
+Ta paczka zawiera gotową stronę statyczną. Nie wymaga instalowania Node.js,
+npm ani wykonywania kompilacji.
+
+GITHUB PAGES
+------------
+1. Utwórz nowe publiczne repozytorium na GitHubie.
+2. Wgraj CAŁĄ zawartość tego folderu bezpośrednio do głównego katalogu repozytorium.
+   Plik index.html musi znajdować się w katalogu głównym.
+3. Otwórz Settings > Pages.
+4. W sekcji Build and deployment wybierz:
+   Source: Deploy from a branch
+   Branch: main
+   Folder: / (root)
+5. Kliknij Save i poczekaj na opublikowanie strony.
+
+ZWYKŁY HOSTING / FTP
+--------------------
+Wgraj całą zawartość tego folderu do katalogu publicznego hostingu,
+np. public_html, www albo htdocs. Nie wgrywaj folderu nadrzędnego jako
+dodatkowego poziomu — index.html powinien być bezpośrednio w katalogu strony.
+
+NETLIFY / CLOUDFLARE PAGES
+--------------------------
+Możesz przeciągnąć cały ten folder do panelu ręcznego wdrażania.
+Nie ustawiaj polecenia budowania. Katalog publikacji to katalog główny.
+
+TEST LOKALNY
+------------
+Windows: uruchom start-local-server.bat
+macOS: uruchom start-local-server.command
+
+Strona otworzy się pod adresem http://localhost:8000
+Niektóre funkcje przeglądarki nie działają po podwójnym kliknięciu index.html
+z adresem file://, dlatego do testów lokalnych dołączony jest prosty serwer.
+
+WAŻNE
+-----
+- Zachowaj wszystkie pliki i folder assets.
+- Po aktualizacji wyczyść pamięć podręczną strony lub wykonaj twarde odświeżenie.
+- Dane użytkownika są przechowywane lokalnie w jego przeglądarce.
+

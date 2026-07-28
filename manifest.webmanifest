@@ -1,0 +1,17 @@
+{
+  "name": "Invoice Studio",
+  "short_name": "Invoice Studio",
+  "description": "A free online invoice generator for professional invoices, VAT invoices, quotes, receipts and sales documents.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#dfe3ee",
+  "theme_color": "#1b1e35",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

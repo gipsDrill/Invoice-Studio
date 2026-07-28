@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1b1e35" />
+  <meta name="description" content="Create professional invoices, VAT invoices, quotes and receipts for free. Customise the design and download ready-to-send PDF, Word or Excel files." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="application-name" content="Invoice Studio" />
+  <meta name="apple-mobile-web-app-title" content="Invoice Studio" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Invoice Studio" />
+  <meta property="og:title" content="Free Invoice Generator — PDF, Word & Excel" />
+  <meta property="og:description" content="Create a polished, ready-to-send invoice in your browser. Free templates, VAT, quotes, receipts and PDF, Word or Excel downloads." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Free Invoice Generator — Invoice Studio" />
+  <meta name="twitter:description" content="Create professional invoices, quotes and receipts, then download PDF, Word or Excel files." />
+  <link rel="canonical" href="./" />
+  <title>Free Invoice Generator | PDF, Word & Excel | Invoice Studio</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css?v=1.11.2" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Invoice Studio",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+        "description": "A free online invoice generator for creating invoices, VAT invoices, quotes, receipts and other business documents with PDF, Word and Excel downloads.",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "featureList": [
+          "Free invoice generator",
+          "PDF invoice download",
+          "Word and Excel invoice download",
+          "VAT invoice support",
+          "Quotes, receipts and credit notes",
+          "Custom colours, logo and templates",
+          "Private local browser storage"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Invoice Studio",
+        "description": "Free online invoice generator and business document builder",
+        "inLanguage": "en-GB"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <button class="brand" type="button" data-action="go-start" aria-label="Go to start">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="img"><path d="M10 7.5h14.5L31 14v18.5H10z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M24.5 7.5V14H31M15 20h11M15 25h11M15 30h7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>
+          <strong>Invoice Studio</strong>
+          <small>A polished document in a few clicks</small>
+        </span>
+      </button>
+
+      <div class="top-actions">
+        <span id="saveStatus" class="save-status"><span class="status-dot"></span> Saved locally</span>
+        <a class="btn btn-quiet" href="calculators.html">
+          <span class="btn-icon" aria-hidden="true">⌁</span> Calculators
+        </a>
+        <button class="btn btn-quiet" type="button" data-action="new-document">
+          <span class="btn-icon" aria-hidden="true">＋</span> New document
+        </button>
+        <button class="icon-button mobile-only" type="button" data-action="toggle-preview" aria-label="Show preview">
+          <svg viewBox="0 0 24 24"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="stepper" aria-label="Document creation steps">
+      <button class="step-tab active" type="button" data-step="1"><span>1</span><strong>Type</strong><small>What are you creating?</small></button>
+      <div class="step-line"></div>
+      <button class="step-tab" type="button" data-step="2"><span>2</span><strong>Design</strong><small>Choose the visual style</small></button>
+      <div class="step-line"></div>
+      <button class="step-tab" type="button" data-step="3"><span>3</span><strong>Details</strong><small>Who and for whom?</small></button>
+      <div class="step-line"></div>
+      <button class="step-tab" type="button" data-step="4"><span>4</span><strong>Items</strong><small>What are you billing?</small></button>
+      <div class="step-line"></div>
+      <button class="step-tab" type="button" data-step="5"><span>5</span><strong>Finish</strong><small>Review and download</small></button>
+    </nav>
+
+    <main class="workspace">
+      <section class="editor-pane" aria-live="polite">
+        <form id="invoiceForm" novalidate>
+          <section class="step-panel active" data-panel="1">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Step 1 of 5</span>
+                <h1>Free invoice generator for professional documents</h1>
+                <p>Create invoices, VAT invoices, quotes and receipts online, then download a polished PDF, Word or Excel file — free and private in your browser.</p>
+              </div>
+            </div>
+
+            <div class="field-block">
+              <div class="field-block-head">
+                <div><h2>Document type</h2><p>Titles and totals adjust automatically.</p></div>
+              </div>
+              <div id="documentTypeGrid" class="choice-grid choice-grid-docs"></div>
+            </div>
+
+            <div class="field-block">
+              <div class="field-block-head">
+                <div><h2>What are you billing?</h2><p>Each mode has its own quick item form.</p></div>
+              </div>
+              <div id="workModeGrid" class="choice-grid choice-grid-modes"></div>
+            </div>
+
+            <div class="smart-setting-row">
+              <label class="field compact-field"><span>Billing country</span><select id="country"><option value="GB">United Kingdom</option><option value="PL">Poland</option><option value="OTHER">Other country</option></select></label>
+              <label class="field compact-field"><span>Currency</span><select id="currency"><option value="GBP">GBP — £</option><option value="EUR">EUR — €</option><option value="PLN">PLN — zł</option><option value="USD">USD — $</option></select></label>
+              <label class="field compact-field"><span>Document language</span><select id="documentLanguage"><option value="en">English</option><option value="pl">Polish</option><option value="bi">PL / EN</option></select></label>
+            </div>
+          </section>
+
+          <section class="step-panel" data-panel="3">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Step 3 of 5</span>
+                <h1>Add the essential details</h1>
+                <p>Start with the essentials. Additional fields stay out of the way until you need them.</p>
+              </div>
+            </div>
+
+            <div class="detail-grid">
+              <section class="field-block detail-card">
+                <div class="field-block-head">
+                  <div><h2>Your details</h2><p>Seller or service provider</p></div>
+                  <button class="text-button" type="button" data-action="save-seller">Save profile</button>
+                </div>
+                <div class="form-grid two-col">
+                  <label class="field span-2"><span>Business name / full name *</span><input id="sellerName" autocomplete="organization" placeholder="e.g. Northline Services Ltd" /></label>
+                  <label class="field"><span>E-mail</span><input id="sellerEmail" type="email" autocomplete="email" placeholder="hello@company.co.uk" /></label>
+                  <label class="field"><span>Phone</span><input id="sellerPhone" autocomplete="tel" placeholder="+44 7700 000000" /></label>
+                  <label class="field span-2"><span>Address</span><textarea id="sellerAddress" rows="2" placeholder="Street, city, postcode"></textarea></label>
+                  <label class="field"><span>Company number</span><input id="sellerCompanyNo" placeholder="Company No." /></label>
+                  <label class="field"><span>VAT number</span><input id="sellerVatNo" placeholder="GB 123 4567 89" /></label>
+                </div>
+                <details class="disclosure">
+                  <summary>Bank details and additional information</summary>
+                  <div class="form-grid two-col disclosure-content">
+                    <label class="field span-2"><span>Bank name</span><input id="bankName" placeholder="Bank name" /></label>
+                    <label class="field"><span>Sort code / BIC</span><input id="bankCode" placeholder="00-00-00" /></label>
+                    <label class="field"><span>Account / IBAN</span><input id="bankAccount" placeholder="12345678" /></label>
+                  </div>
+                </details>
+              </section>
+
+              <section class="field-block detail-card">
+                <div class="field-block-head">
+                  <div><h2>Client</h2><p>Document recipient</p></div>
+                  <button class="text-button" type="button" data-action="paste-client">Paste details</button>
+                </div>
+                <div class="form-grid two-col">
+                  <label class="field span-2"><span>Client name *</span><input id="clientName" autocomplete="organization" placeholder="e.g. Atlas Logistics Ltd" /></label>
+                  <label class="field"><span>E-mail</span><input id="clientEmail" type="email" autocomplete="email" placeholder="accounts@client.co.uk" /></label>
+                  <label class="field"><span>Phone</span><input id="clientPhone" autocomplete="tel" placeholder="+44 ..." /></label>
+                  <label class="field span-2"><span>Address</span><textarea id="clientAddress" rows="2" placeholder="Street, city, postcode"></textarea></label>
+                  <label class="field"><span>VAT number</span><input id="clientVatNo" placeholder="Optional" /></label>
+                  <label class="field"><span>Purchase order / job number</span><input id="purchaseOrder" placeholder="PO / Job No." /></label>
+                </div>
+              </section>
+            </div>
+
+            <section class="field-block">
+              <div class="field-block-head"><div><h2>Document details</h2><p>Dates and numbering are suggested automatically.</p></div></div>
+              <div class="form-grid four-col">
+                <label class="field"><span id="numberFieldLabel">Invoice number</span><input id="invoiceNumber" /></label>
+                <label class="field"><span id="issueDateFieldLabel">Issue date</span><input id="issueDate" type="date" /></label>
+                <label class="field"><span id="dueDateFieldLabel">Due date</span><input id="dueDate" type="date" /></label>
+                <label class="field"><span id="serviceDateFieldLabel">Service date</span><input id="serviceDate" type="date" /></label>
+              </div>
+              <div class="quick-due-row" aria-label="Quick due date">
+                <span>Due:</span>
+                <button type="button" data-due-days="0">on receipt</button>
+                <button type="button" data-due-days="7">7 days</button>
+                <button type="button" data-due-days="14" class="active">14 days</button>
+                <button type="button" data-due-days="30">30 days</button>
+                <button type="button" data-due-days="none" class="due-none">No due date</button>
+              </div>
+            </section>
+          </section>
+
+          <section class="step-panel" data-panel="4">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Step 4 of 5</span>
+                <h1>Add what you are billing</h1>
+                <p>Use a smart description or add items manually.</p>
+              </div>
+            </div>
+
+            <section class="smart-draft-card">
+              <div class="smart-draft-head">
+                <span class="smart-spark">✦</span>
+                <div><h2>Smart draft</h2><p>Describe the job in plain English. We will turn it into editable line items.</p></div>
+                <span class="local-badge">works locally</span>
+              </div>
+              <textarea id="smartPrompt" rows="3" placeholder="Example: Invoice for 5 days at £220, two night-outs at £30 and £45 fuel expenses, VAT 20%, due in 14 days."></textarea>
+              <div class="smart-actions">
+                <div class="example-prompts">
+                  <button type="button" data-prompt-example="Invoice for 5 days of work at £220, two night-outs at £30 and fuel expenses £45, VAT 20%, due in 14 days">Work + expenses</button>
+                  <button type="button" data-prompt-example="10 branded shirts at £18 each and delivery £12, VAT 20%">Products</button>
+                  <button type="button" data-prompt-example="Website design project £600, deposit £150 already paid">Project</button>
+                  <button type="button" data-prompt-example="8 hours of consulting at £65 per hour, due in 7 days">Consulting hours</button>
+                  <button type="button" data-prompt-example="Monthly social media management £450, recurring service for July">Monthly retainer</button>
+                  <button type="button" data-prompt-example="Business mileage 175 miles at £0.45 and parking £18.50">Mileage</button>
+                  <button type="button" data-prompt-example="Reimburse hotel £96.40, train £44 and client lunch £28.75">Reimbursements</button>
+                  <button type="button" data-prompt-example="Deposit invoice for kitchen fitting project, 30% of £2400">Deposit invoice</button>
+                  <button type="button" data-prompt-example="Bathroom repair labour 6 hours at £45, materials £120 and call-out £30, VAT 20%">Trade repair</button>
+                  <button type="button" data-prompt-example="Corporate photography half day £480 and image licence £120, due in 14 days">Photography</button>
+                  <button type="button" data-prompt-example="Mini excavator hire for 3 days at £160 and delivery £75">Equipment hire</button>
+                  <button type="button" data-prompt-example="4 one-to-one English lessons at £35 each, due in 7 days">Tutoring</button>
+                  <button type="button" data-prompt-example="End of tenancy cleaning £240 and carpet cleaning £85">Cleaning job</button>
+                  <button type="button" data-prompt-example="Commercial invoice for 20 machine parts at £12.50 each and freight £65, VAT 0%">Exported goods</button>
+                </div>
+                <button class="btn btn-primary" type="button" data-action="smart-generate">Create draft</button>
+              </div>
+              <div id="smartResult" class="smart-result" hidden></div>
+            </section>
+
+            <section class="field-block">
+              <div class="field-block-head">
+                <div><h2 id="quickAddTitle">Quick item entry</h2><p id="quickAddSubtitle">A form tailored to the selected billing mode.</p></div>
+                <div class="calculator-actions"><a class="btn btn-secondary" href="calculators.html">Open calculators</a><button class="text-button" type="button" data-action="open-toolbox">Quick panel</button></div>
+              </div>
+              <div id="quickAddForm" class="quick-add-form"></div>
+            </section>
+
+            <section class="field-block items-block">
+              <div class="field-block-head">
+                <div><h2>Document items</h2><p>Click any field to edit it.</p></div>
+                <button class="text-button danger" type="button" data-action="clear-items">Clear</button>
+              </div>
+              <div class="items-table-wrap">
+                <table class="items-editor-table">
+                  <thead><tr><th>Description</th><th>Quantity</th><th>Unit</th><th>Rate</th><th>Amount</th><th></th></tr></thead>
+                  <tbody id="itemsEditorBody"></tbody>
+                </table>
+              </div>
+              <div class="item-add-options">
+                <button class="add-empty-row" type="button" data-action="add-empty-item">＋ Add blank item</button>
+                <div class="suggested-item-picker">
+                  <div>
+                    <label for="suggestedItemSelect">Smart item suggestions</label>
+                    <small id="suggestedItemHint">Choose a suggestion to add it instantly</small>
+                  </div>
+                  <select id="suggestedItemSelect" aria-label="Suggested document item"></select>
+                </div>
+              </div>
+            </section>
+
+            <section class="field-block compact-adjustments">
+              <div class="field-block-head"><div><h2>Tax and adjustments</h2><p>Simple document-wide settings.</p></div></div>
+              <div class="form-grid four-col">
+                <label class="field"><span>VAT</span><select id="vatEnabled"><option value="false">No VAT</option><option value="true">Add VAT</option></select></label>
+                <label class="field"><span>VAT rate</span><div class="input-suffix"><input id="vatRate" type="number" min="0" step="0.01" /><span>%</span></div></label>
+                <label class="field"><span>Discount</span><div class="split-input"><select id="discountType"><option value="percent">%</option><option value="amount">amount</option></select><input id="discountValue" type="number" min="0" step="0.01" /></div></label>
+                <label class="field"><span>Deposit paid</span><input id="depositPaid" type="number" min="0" step="0.01" /></label>
+              </div>
+            </section>
+          </section>
+
+          <section class="step-panel" data-panel="2">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Step 2 of 5</span>
+                <h1>Choose the look</h1>
+                <p>Twelve genuinely distinct professional styles, without clutter or complicated settings.</p>
+              </div>
+            </div>
+
+            <section class="field-block">
+              <div class="field-block-head"><div><h2>Template</h2><p>The content stays the same; hierarchy, typography and layout change.</p></div></div>
+              <div id="templateGrid" class="template-grid"></div>
+            </section>
+
+            <div class="detail-grid style-grid">
+              <section class="field-block">
+                <div class="field-block-head"><div><h2>Colour and logo</h2><p>Subtle branding without visual clutter.</p></div></div>
+                <div class="accent-row" id="accentChoices"></div>
+                <div id="customColourPanel" class="custom-colour-panel">
+                  <label class="custom-colour-picker" for="customAccentPicker">
+                    <input id="customAccentPicker" type="color" value="#4f46e5" aria-label="Choose a custom document colour" />
+                    <span id="customColourSwatch" class="custom-colour-swatch" aria-hidden="true"></span>
+                    <span><strong>Custom colour</strong><small>Choose any colour from the palette</small></span>
+                  </label>
+                  <label class="custom-colour-hex" for="customAccentHex">
+                    <span>HEX</span>
+                    <input id="customAccentHex" type="text" value="#4F46E5" maxlength="7" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Custom colour HEX value" />
+                  </label>
+                  <button class="custom-colour-apply" type="button" data-action="apply-custom-colour">Use colour</button>
+                </div>
+                <label class="file-drop" for="logoUpload">
+                  <input id="logoUpload" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" />
+                  <span class="file-drop-icon">↥</span>
+                  <span><strong>Add logo</strong><small>PNG, JPG, WEBP or SVG</small></span>
+                  <button type="button" data-action="remove-logo" hidden>Remove</button>
+                </label>
+                <div id="logoControls" class="logo-controls" hidden>
+                  <div class="logo-controls-head">
+                    <div>
+                      <strong>Logo placement</strong>
+                      <small>Drag it on the preview or use the precise controls.</small>
+                    </div>
+                    <button id="logoMoveButton" class="logo-move-button" type="button" data-action="toggle-logo-move" aria-pressed="false">
+                      <span aria-hidden="true">✥</span> Move on preview
+                    </button>
+                  </div>
+                  <div class="logo-presets" aria-label="Quick logo positions">
+                    <button type="button" data-logo-preset="left">Top left</button>
+                    <button type="button" data-logo-preset="centre">Top centre</button>
+                    <button type="button" data-logo-preset="right">Top right</button>
+                  </div>
+                  <div class="logo-sliders">
+                    <label class="logo-control">
+                      <span>Horizontal position <output id="logoXValue">88%</output></span>
+                      <input id="logoX" type="range" min="0" max="100" step="1" value="88" />
+                    </label>
+                    <label class="logo-control">
+                      <span>Vertical position <output id="logoYValue">5%</output></span>
+                      <input id="logoY" type="range" min="0" max="100" step="1" value="5" />
+                    </label>
+                    <label class="logo-control">
+                      <span>Logo size <output id="logoWidthValue">116 px</output></span>
+                      <input id="logoWidth" type="range" min="54" max="220" step="2" value="116" />
+                    </label>
+                  </div>
+                </div>
+              </section>
+
+              <section class="field-block">
+                <div class="field-block-head"><div><h2>Visible elements</h2><p>Hide anything your client does not need to see.</p></div></div>
+                <div class="toggle-list">
+                  <label class="toggle-row"><span><strong>Bank details</strong><small>Show transfer details</small></span><input id="showBank" type="checkbox" checked /><i></i></label>
+                  <label class="toggle-row"><span><strong>Notes</strong><small>Additional message below the invoice</small></span><input id="showNotes" type="checkbox" checked /><i></i></label>
+                  <label class="toggle-row"><span><strong>Payment terms</strong><small>Due date and terms at the end of the document</small></span><input id="showTerms" type="checkbox" checked /><i></i></label>
+                  <label class="toggle-row"><span><strong>Signature</strong><small>Space for the issuer’s signature</small></span><input id="showSignature" type="checkbox" /><i></i></label>
+                </div>
+              </section>
+            </div>
+
+            <section class="field-block">
+              <div class="field-block-head"><div><h2>Notes and terms</h2><p>Keep it concise and professional.</p></div></div>
+              <div class="form-grid two-col">
+                <label class="field"><span>Client notes</span><textarea id="notes" rows="4" placeholder="Thank you for your business. Please quote the invoice number with your payment."></textarea></label>
+                <label class="field"><span>Payment terms</span><textarea id="terms" rows="4" placeholder="Payment due within 14 days by bank transfer."></textarea></label>
+              </div>
+            </section>
+          </section>
+
+          <section class="step-panel" data-panel="5">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Step 5 of 5</span>
+                <h1>Your document is almost ready</h1>
+                <p>Review the summary, fix any missing details and download your chosen format.</p>
+              </div>
+            </div>
+
+            <div class="final-grid">
+              <section class="field-block readiness-card">
+                <div class="readiness-score"><span id="readinessPercent">0%</span><small>ready</small></div>
+                <div><h2 id="readinessTitle">Checking your document…</h2><p id="readinessText">The most important checks will appear below.</p></div>
+              </section>
+              <section id="checksList" class="checks-list"></section>
+            </div>
+
+            <section class="field-block export-card">
+              <div class="export-intro"><span class="export-icon">↓</span><div><h2>Download your finished document</h2><p>PDF, Word and the first Excel sheet use the exact live-preview design.</p></div><span class="pixel-match-badge">Preview matched</span></div>
+              <div class="export-grid">
+                <button type="button" class="export-button pdf" data-export="pdf"><span>PDF</span><strong>Ready to send</strong><small>A polished final document</small></button>
+                <button type="button" class="export-button excel" data-export="xlsx"><span>Excel</span><strong>Editable workbook</strong><small>Preview sheet plus editable data</small></button>
+                <button type="button" class="export-button word" data-export="docx"><span>Word</span><strong>Exact visual Word copy</strong><small>A DOCX matching the live preview</small></button>
+              </div>
+              <div class="export-secondary">
+                <button class="btn btn-secondary" type="button" data-action="print-document">Print / system PDF</button>
+                <button class="btn btn-secondary" type="button" data-action="copy-summary">Copy summary</button>
+              </div>
+            </section>
+          </section>
+
+          <div class="step-actions">
+            <button id="prevStep" class="btn btn-secondary" type="button">Back</button>
+            <div class="step-action-note"><span id="stepActionLabel">Choose a document type and billing mode</span></div>
+            <button id="nextStep" class="btn btn-primary" type="button">Next <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview-pane" aria-label="Document preview">
+        <div class="preview-toolbar">
+          <div class="preview-live-label"><span class="live-dot"></span><strong>Live preview</strong><small>Updates automatically</small></div>
+          <div id="selectionSummary" class="selection-summary preview-context" aria-live="polite"></div>
+          <div class="preview-toolbar-actions"><div class="zoom-controls"><button type="button" data-zoom="out" aria-label="Zoom out">−</button><span id="zoomValue">86%</span><button type="button" data-zoom="in" aria-label="Zoom in">＋</button></div><button class="icon-button preview-close mobile-only" type="button" data-action="toggle-preview" aria-label="Close preview">×</button></div>
+        </div>
+        <div class="preview-stage">
+          <article id="invoicePreview" class="invoice-preview template-studio"></article>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <section class="seo-content" aria-labelledby="aboutInvoiceStudio">
+    <div class="seo-content-inner">
+      <div class="seo-intro">
+        <span class="eyebrow">Free online invoice maker</span>
+        <h2 id="aboutInvoiceStudio">Create a professional invoice in minutes</h2>
+        <p>Invoice Studio is a free invoice generator for freelancers, sole traders, contractors and small businesses. Build a clear, branded document without installing software or creating an account.</p>
+        <a class="btn btn-primary" href="#app">Create a free invoice</a>
+      </div>
+      <div class="seo-features">
+        <article><strong>Ready-to-send files</strong><p>Download your finished invoice as PDF, Word or Excel using the same design shown in the live preview.</p></article>
+        <article><strong>More than invoices</strong><p>Create VAT invoices, quotes, pro forma invoices, receipts, credit notes, payment requests and other business documents.</p></article>
+        <article><strong>Your branding</strong><p>Choose a professional template, set any custom colour, upload a logo and position it precisely on the document.</p></article>
+        <article><strong>Private by design</strong><p>Your draft and saved details stay in local browser storage on your device. No account is required.</p></article>
+      </div>
+      <div class="seo-faq">
+        <h2>Free invoice generator questions</h2>
+        <details><summary>Is Invoice Studio really free?</summary><p>Yes. You can create, customise and download business documents without paying or creating an account.</p></details>
+        <details><summary>Can I download an invoice as a PDF?</summary><p>Yes. The PDF uses the same layout as the live preview. Word and Excel versions are also available.</p></details>
+        <details><summary>Can I create a VAT invoice?</summary><p>Yes. Select VAT Invoice, enter the applicable VAT rate and the generator will calculate and display the VAT breakdown.</p></details>
+        <details><summary>Does it work on phones and tablets?</summary><p>Yes. The invoice builder is responsive and supports desktop computers, tablets, iPhone and Android devices.</p></details>
+        <details><summary>What invoice templates are included?</summary><p>You can choose from twelve professional styles and customise the colour, visible sections and logo placement.</p></details>
+      </div>
+      <nav class="seo-links" aria-label="Invoice Studio resources">
+        <a href="#app">Free invoice generator</a>
+        <a href="calculators.html">Invoice calculators</a>
+        <a href="#app">VAT invoice maker</a>
+        <a href="#app">Quote and receipt maker</a>
+      </nav>
+    </div>
+  </section>
+
+  <div id="toolboxBackdrop" class="sheet-backdrop" hidden></div>
+  <aside id="toolbox" class="toolbox-sheet" aria-hidden="true">
+    <div class="sheet-header"><div><span class="eyebrow">Tools</span><h2>Quick calculators</h2><p>Add any result straight to the current document.</p></div><button class="icon-button" type="button" data-action="close-toolbox" aria-label="Close">×</button></div>
+    <div class="tool-tabs">
+      <button type="button" class="active" data-tool="hours">Hours</button>
+      <button type="button" data-tool="vat">VAT</button>
+      <button type="button" data-tool="mileage">Mileage</button>
+      <button type="button" data-tool="adjustment">Discount / deposit</button>
+    </div>
+    <div id="toolPanels" class="tool-panels"></div>
+  </aside>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <template id="confirmDialogTemplate">
+    <dialog class="confirm-dialog"><form method="dialog"><div class="dialog-icon">!</div><h2></h2><p></p><div class="dialog-actions"><button value="cancel" class="btn btn-secondary">Cancel</button><button value="confirm" class="btn btn-danger">Confirm</button></div></form></dialog>
+  </template>
+
+  <script src="invoice-renderer.js?v=1.11.2"></script>
+  <script src="export.js?v=1.11.2"></script>
+  <script src="app.js?v=1.11.2"></script>
+</body>
+</html>

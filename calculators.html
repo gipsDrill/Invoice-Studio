@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1b1e35" />
+  <meta name="description" content="Free invoice calculators for working hours, VAT, mileage, discounts and deposits. Add the result directly to a professional invoice." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <link rel="canonical" href="calculators.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="Free Invoice, VAT & Hours Calculators" />
+  <meta property="og:description" content="Calculate hours, VAT, mileage, discounts and deposits, then add the result to a professional invoice." />
+  <title>Free Invoice, VAT & Hours Calculators | Invoice Studio</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css?v=1.11.2" />
+</head>
+<body class="tools-page">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Return to Invoice Studio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img"><path d="M10 7.5h14.5L31 14v18.5H10z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M24.5 7.5V14H31M15 20h11M15 25h11M15 30h7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span><strong>Invoice Studio</strong><small>Calculators and automation tools</small></span>
+    </a>
+    <div class="top-actions">
+      <label class="field compact-field tools-currency"><span>Currency</span><select id="toolCurrency"><option value="GBP">GBP — £</option><option value="EUR">EUR — €</option><option value="USD">USD — $</option><option value="PLN">PLN — zł</option></select></label>
+      <a class="btn btn-primary" href="index.html">Back to invoice</a>
+    </div>
+  </header>
+
+  <main class="tools-shell">
+    <section class="tools-hero">
+      <div><span class="eyebrow">Invoice tools</span><h1>Calculate it once. Add it in one click.</h1><p>Use the calculators independently or send a result straight into your current invoice draft. Every result remains editable after it is added.</p></div>
+      <a class="btn btn-secondary" href="index.html#step-3">Open invoice builder</a>
+    </section>
+
+    <section class="tools-grid">
+      <article class="standalone-tool" id="hoursCalculator">
+        <h2>Hours & shift calculator</h2>
+        <p>Calculates paid time, handles overnight shifts and subtracts an unpaid break.</p>
+        <div class="form-grid two-col">
+          <label class="field span-2"><span>Description</span><input id="hoursDescription" value="Professional services" /></label>
+          <label class="field"><span>Start</span><input id="hoursStart" type="time" value="08:00" /></label>
+          <label class="field"><span>End</span><input id="hoursEnd" type="time" value="17:00" /></label>
+          <label class="field"><span>Unpaid break (min)</span><input id="hoursBreak" type="number" min="0" step="5" value="45" /></label>
+          <label class="field"><span>Hourly rate</span><input id="hoursRate" type="number" min="0" step="0.01" value="18.50" /></label>
+        </div>
+        <div class="tool-result-large"><span>Paid hours and value</span><strong id="hoursResult">—</strong></div>
+        <div class="tools-actions"><button class="btn btn-primary" type="button" data-add="hours">Add to invoice</button><button class="btn btn-secondary" type="button" data-copy="hours">Copy result</button></div>
+      </article>
+
+      <article class="standalone-tool" id="vatCalculator">
+        <h2>Net, VAT & gross calculator</h2>
+        <p>Start with either a net or gross amount and see the full breakdown instantly.</p>
+        <div class="form-grid two-col">
+          <label class="field"><span>Amount</span><input id="vatAmount" type="number" min="0" step="0.01" value="100" /></label>
+          <label class="field"><span>Amount is</span><select id="vatBasis"><option value="net">Net</option><option value="gross">Gross</option></select></label>
+          <label class="field span-2"><span>VAT rate</span><div class="input-suffix"><input id="vatRateTool" type="number" min="0" step="0.01" value="20" /><span>%</span></div></label>
+        </div>
+        <div class="tool-result-large"><span>Net / VAT / Gross</span><strong id="vatResult">—</strong></div>
+        <div class="tools-actions"><button class="btn btn-primary" type="button" data-add="vat">Apply to invoice</button><button class="btn btn-secondary" type="button" data-copy="vat">Copy result</button></div>
+      </article>
+
+      <article class="standalone-tool" id="mileageCalculator">
+        <h2>Mileage & travel calculator</h2>
+        <p>Combine distance, a per-mile or per-kilometre rate and additional costs.</p>
+        <div class="form-grid two-col">
+          <label class="field span-2"><span>Journey description</span><input id="mileageDescription" value="Business mileage" /></label>
+          <label class="field"><span>Distance</span><input id="mileageDistance" type="number" min="0" step="0.1" value="100" /></label>
+          <label class="field"><span>Unit</span><select id="mileageUnit"><option value="mile">mile</option><option value="km">km</option></select></label>
+          <label class="field"><span>Rate</span><input id="mileageRate" type="number" min="0" step="0.01" value="0.45" /></label>
+          <label class="field"><span>Parking / tolls / extra</span><input id="mileageExtra" type="number" min="0" step="0.01" value="0" /></label>
+        </div>
+        <div class="tool-result-large"><span>Total travel value</span><strong id="mileageResult">—</strong></div>
+        <div class="tools-actions"><button class="btn btn-primary" type="button" data-add="mileage">Add to invoice</button><button class="btn btn-secondary" type="button" data-copy="mileage">Copy result</button></div>
+      </article>
+
+      <article class="standalone-tool" id="adjustmentCalculator">
+        <h2>Discount & deposit calculator</h2>
+        <p>Preview a percentage or fixed discount and subtract a payment already received.</p>
+        <div class="form-grid two-col">
+          <label class="field span-2"><span>Current subtotal</span><input id="adjustSubtotal" type="number" min="0" step="0.01" value="1000" /></label>
+          <label class="field"><span>Discount</span><input id="adjustDiscount" type="number" min="0" step="0.01" value="10" /></label>
+          <label class="field"><span>Discount type</span><select id="adjustType"><option value="percent">Percent</option><option value="amount">Fixed amount</option></select></label>
+          <label class="field span-2"><span>Deposit already paid</span><input id="adjustDeposit" type="number" min="0" step="0.01" value="150" /></label>
+        </div>
+        <div class="tool-result-large"><span>Amount remaining</span><strong id="adjustResult">—</strong></div>
+        <div class="tools-actions"><button class="btn btn-primary" type="button" data-add="adjustment">Apply to invoice</button><button class="btn btn-secondary" type="button" data-copy="adjustment">Copy result</button></div>
+      </article>
+    </section>
+
+    <p class="tools-note">Calculations are performed locally in your browser. Adding a result stores it temporarily on this device and opens the invoice builder; it does not send your data to an external service.</p>
+  </main>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="calculators.js?v=1.11.2"></script>
+</body>
+</html>
