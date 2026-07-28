@@ -1503,10 +1503,16 @@
       else if (action === 'toggle-preview') {
         const pane = $('#invoicePreview').closest('.preview-pane');
         const opening = !pane.classList.contains('open');
-        pane.classList.toggle('open');
+        pane.classList.toggle('open', opening);
+        document.body.classList.toggle('preview-open', opening);
+        $$('[data-action="toggle-preview"]').forEach((button) => button.setAttribute('aria-expanded', String(opening)));
         if (opening && window.matchMedia('(max-width: 1020px)').matches) {
           state.previewZoomManual = false;
-          requestAnimationFrame(() => applyPreviewFit(Number($('#invoicePreview')?.dataset.baseHeight || 1018)));
+          pane.scrollTop = 0;
+          requestAnimationFrame(() => {
+            applyPreviewFit(Number($('#invoicePreview')?.dataset.baseHeight || 1018));
+            $('.preview-stage')?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          });
         }
       }
     });
@@ -1579,7 +1585,16 @@
 
     $('#toolboxBackdrop').addEventListener('click', closeToolbox);
     $('#toolPanels').addEventListener('input', updateToolResults);
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && $('#toolbox').classList.contains('open')) closeToolbox(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      if ($('#toolbox').classList.contains('open')) closeToolbox();
+      const previewPane = $('.preview-pane');
+      if (previewPane?.classList.contains('open')) {
+        previewPane.classList.remove('open');
+        document.body.classList.remove('preview-open');
+        $$('[data-action="toggle-preview"]').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+      }
+    });
   }
 
   function importPendingCalculatorResult() {

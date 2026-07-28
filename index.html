@@ -21,7 +21,7 @@
   <title>Free Invoice Generator | PDF, Word & Excel | Invoice Studio</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=1.11.5" />
+  <link rel="stylesheet" href="styles.css?v=1.11.7" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -453,6 +453,15 @@
     </div>
   </section>
 
+
+  <button class="mobile-preview-launcher mobile-only" type="button" data-action="toggle-preview" aria-label="Open live invoice preview" aria-expanded="false">
+    <span class="mobile-preview-launcher-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 12s3.2-5.5 9-5.5 9 5.5 9 5.5-3.2 5.5-9 5.5S3 12 3 12Z" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
+    </span>
+    <span class="mobile-preview-launcher-copy"><strong>Preview invoice</strong><small>See the live document</small></span>
+    <span class="mobile-preview-launcher-arrow" aria-hidden="true">↑</span>
+  </button>
+
   <div id="toolboxBackdrop" class="sheet-backdrop" hidden></div>
   <aside id="toolbox" class="toolbox-sheet" aria-hidden="true">
     <div class="sheet-header"><div><span class="eyebrow">Tools</span><h2>Quick calculators</h2><p>Add any result straight to the current document.</p></div><button class="icon-button" type="button" data-action="close-toolbox" aria-label="Close">×</button></div>
@@ -471,8 +480,8 @@
     <dialog class="confirm-dialog"><form method="dialog"><div class="dialog-icon">!</div><h2></h2><p></p><div class="dialog-actions"><button value="cancel" class="btn btn-secondary">Cancel</button><button value="confirm" class="btn btn-danger">Confirm</button></div></form></dialog>
   </template>
 
-  <script src="invoice-renderer.js?v=1.11.5"></script>
-  <script src="export.js?v=1.11.5"></script>
-  <script src="app.js?v=1.11.5"></script>
+  <script src="invoice-renderer.js?v=1.11.7"></script>
+  <script src="export.js?v=1.11.7"></script>
+  <script src="app.js?v=1.11.7"></script>
 </body>
 </html>

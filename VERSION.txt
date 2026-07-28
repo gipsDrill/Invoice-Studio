@@ -1,1 +1,1 @@
-Invoice Studio 1.11.6 — Selection Scroll Fix
+Invoice Studio 1.11.7 — Mobile Live Preview

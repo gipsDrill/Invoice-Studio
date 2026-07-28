@@ -1,11 +1,11 @@
-const CACHE = 'invoice-studio-v1.11.6';
+const CACHE = 'invoice-studio-v1.11.7-mobile-preview';
 const FILES = [
   './', './index.html', './calculators.html',
-  './styles.css', './styles.css?v=1.11.6',
-  './invoice-renderer.js', './invoice-renderer.js?v=1.11.6',
-  './app.js', './app.js?v=1.11.6',
-  './export.js', './export.js?v=1.11.6',
-  './calculators.js', './calculators.js?v=1.11.6',
+  './styles.css', './styles.css?v=1.11.7',
+  './invoice-renderer.js', './invoice-renderer.js?v=1.11.7',
+  './app.js', './app.js?v=1.11.7',
+  './export.js', './export.js?v=1.11.7',
+  './calculators.js', './calculators.js?v=1.11.7',
   './manifest.webmanifest', './assets/icon.svg', './robots.txt'
 ];
 self.addEventListener('install', (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting())));
