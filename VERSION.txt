@@ -1,1 +1,1 @@
-Invoice Studio 1.11.7 — Mobile Live Preview
+Invoice Studio 1.11.8 — Mobile Layout & Live Preview Fix

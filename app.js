@@ -1625,3 +1625,31 @@
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+
+/* v1.11.8 — mobile preview reliability and viewport recovery. */
+(() => {
+  const mobileQuery = window.matchMedia('(max-width: 1020px)');
+  const pane = document.querySelector('.preview-pane');
+  const stage = document.querySelector('.preview-stage');
+  const preview = document.querySelector('#invoicePreview');
+  if (!pane || !stage || !preview) return;
+
+  const refitMobilePreview = () => {
+    if (!mobileQuery.matches || !pane.classList.contains('open')) return;
+    try {
+      state.previewZoomManual = false;
+      applyPreviewFit(Number(preview.dataset.baseHeight || 1018));
+      stage.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch (_) {}
+  };
+
+  document.querySelectorAll('[data-action="toggle-preview"]').forEach((button) => {
+    button.addEventListener('click', () => {
+      window.setTimeout(refitMobilePreview, 40);
+      window.setTimeout(refitMobilePreview, 260);
+    });
+  });
+
+  window.addEventListener('orientationchange', () => window.setTimeout(refitMobilePreview, 220));
+  window.visualViewport?.addEventListener('resize', () => window.setTimeout(refitMobilePreview, 80));
+})();
