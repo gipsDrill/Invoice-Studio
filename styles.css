@@ -1660,3 +1660,23 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .choice-card:hover,
   .template-card:hover { transform: none; }
 }
+
+/* v1.11.4 — keep the preview controls above the document without overlap. */
+@media (min-width: 1021px) {
+  .preview-pane {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .preview-toolbar {
+    position: relative;
+    top: auto;
+    align-self: start;
+    z-index: 12;
+  }
+
+  .preview-stage {
+    height: auto;
+    min-height: 0;
+  }
+}

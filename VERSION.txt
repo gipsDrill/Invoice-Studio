@@ -1,1 +1,1 @@
-Invoice Studio 1.11.3 — Sticky Full Preview + Zoom Fix
+Invoice Studio 1.11.4 — Preview Toolbar Position Fix

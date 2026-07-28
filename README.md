@@ -39,3 +39,6 @@ On Windows, double-click `start-local-server.bat` and open the displayed local a
 - Removed the redundant sticky “Amount due” bar from the live preview.
 - Preserved document totals, calculations and all export formats.
 This build adds unrestricted document colour selection and a complete, portable SEO foundation while preserving the existing workflow, templates, logo controls and pixel-matched exports.
+
+## Version 1.11.4
+The live-preview toolbar now occupies its own fixed row above the invoice canvas, so it cannot cover the top of the document while the page or preview is scrolled.
