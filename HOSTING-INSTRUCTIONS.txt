@@ -1,4 +1,4 @@
-INVOICE STUDIO 1.11.1 — PUBLIKACJA STRONY
+BILLORA 1.12.0 — PUBLIKACJA STRONY
 ==================================================
 
 Ta paczka zawiera gotową stronę statyczną. Nie wymaga instalowania Node.js,

@@ -1,11 +1,11 @@
-const CACHE = 'invoice-studio-1.11.10-smart-draft-fix';
+const CACHE = 'billora-1.12.0-rebrand';
 const FILES = [
   './', './index.html', './calculators.html',
-  './styles.css', './styles.css?v=1.11.10',
-  './invoice-renderer.js', './invoice-renderer.js?v=1.11.10',
-  './app.js', './app.js?v=1.11.10',
-  './export.js', './export.js?v=1.11.10',
-  './calculators.js', './calculators.js?v=1.11.10',
+  './styles.css', './styles.css?v=1.12.0',
+  './invoice-renderer.js', './invoice-renderer.js?v=1.12.0',
+  './app.js', './app.js?v=1.12.0',
+  './export.js', './export.js?v=1.12.0',
+  './calculators.js', './calculators.js?v=1.12.0',
   './manifest.webmanifest', './assets/icon.svg', './robots.txt'
 ];
 self.addEventListener('install', (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting())));

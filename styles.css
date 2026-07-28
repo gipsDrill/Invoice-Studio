@@ -67,7 +67,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; border: 0; background: transparent; color: inherit; padding: 4px; text-align: left; }
 .brand-mark { width: 43px; height: 43px; border-radius: 13px; display: grid; place-items: center; color: #fff; background: linear-gradient(145deg, #6d65ff, #4338ca); box-shadow: 0 10px 24px rgba(79, 70, 229, .25); }
-.brand-mark svg { width: 29px; height: 29px; }
+.brand-mark svg, .brand-mark img { width: 100%; height: 100%; display: block; border-radius: inherit; }
 .brand strong { display: block; font-size: 17px; letter-spacing: -.025em; }
 .brand small { display: block; color: var(--muted); margin-top: 2px; font-size: 12px; }
 .top-actions { display: flex; align-items: center; gap: 9px; }
@@ -801,7 +801,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 
 /* ========================================================================== 
-   Invoice Studio 1.2 — expanded templates, due-date control and tools page
+   Billora 1.2 — expanded templates, due-date control and tools page
    ========================================================================== */
 .choice-grid-docs,
 .choice-grid-modes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -930,7 +930,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 
 
 /* ==========================================================================
-   Invoice Studio 1.3 — richer choice icons and four additional templates
+   Billora 1.3 — richer choice icons and four additional templates
    ========================================================================== */
 .choice-card {
   min-height: 112px;
@@ -1052,7 +1052,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 
 /* ========================================================================== 
-   Invoice Studio 1.6 — professional card system and clearer template gallery
+   Billora 1.6 — professional card system and clearer template gallery
    ========================================================================== */
 .choice-grid { gap: 16px; }
 .choice-card {
@@ -1193,7 +1193,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 
 /* ========================================================================== 
-   Invoice Studio 1.6.1 — restrained professional card palette
+   Billora 1.6.1 — restrained professional card palette
    ========================================================================== */
 .choice-card {
   border-color: #c8cfdb;
@@ -1264,7 +1264,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 
 /* ==========================================================================
-   Invoice Studio 1.11 — context-aware documents and elevated interactions
+   Billora 1.11 — context-aware documents and elevated interactions
    ========================================================================== */
 .selection-summary {
   display: grid;

@@ -816,7 +816,7 @@
           <div class="doc-total-row grand"><span>${escapeHtml(docGrandLabel(l))}</span><strong>${formatMoney(grandValue)}</strong></div>
         </div>
       </div>
-      <div class="doc-footer"><span>Invoice Studio</span><span>${escapeHtml(state.invoiceNumber || '')}</span></div>
+      <div class="doc-footer"><span>Billora</span><span>${escapeHtml(state.invoiceNumber || '')}</span></div>
     </div>`;
   }
 

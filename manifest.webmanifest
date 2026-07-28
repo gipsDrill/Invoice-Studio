@@ -1,7 +1,7 @@
 {
-  "name": "Invoice Studio",
-  "short_name": "Invoice Studio",
-  "description": "A free online invoice generator for professional invoices, VAT invoices, quotes, receipts and sales documents.",
+  "name": "Billora \u2014 Invoice Builder",
+  "short_name": "Billora",
+  "description": "Create professional invoices in minutes with polished templates and PDF, Word or Excel downloads.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#dfe3ee",
