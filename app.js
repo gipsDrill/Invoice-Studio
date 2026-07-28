@@ -69,74 +69,74 @@
     invoice: {
       prefix: 'INV', badge: 'PAYMENT DUE', message: 'Standard invoice for completed work or supplied goods.',
       issueLabel: 'Invoice date', dueLabel: 'Payment due', serviceLabel: 'Supply date', fromLabel: 'Supplier', toLabel: 'Bill to',
-      itemLabel: 'Service or product', notes: 'Thank you for your business. Please quote the invoice number with your payment.',
-      terms: 'Payment due within 14 days by bank transfer.', dueDays: 14
+      itemLabel: 'Service or product', notes: '',
+      terms: '', dueDays: 14
     },
     vat: {
       prefix: 'VAT', badge: 'VAT DOCUMENT', message: 'VAT is itemised separately and the supplier VAT number should be shown.',
       issueLabel: 'Tax point', dueLabel: 'Payment due', serviceLabel: 'Supply date', fromLabel: 'VAT supplier', toLabel: 'VAT customer',
-      itemLabel: 'Taxable supply', notes: 'VAT is charged at the rate shown in the totals section.',
-      terms: 'Payment due within 14 days. Please use the invoice number as the bank reference.', dueDays: 14, vat: true
+      itemLabel: 'Taxable supply', notes: '',
+      terms: '', dueDays: 14, vat: true
     },
     quote: {
       prefix: 'QTE', badge: 'NO PAYMENT REQUIRED', message: 'Price proposal only — acceptance is required before work begins.',
       issueLabel: 'Quote date', dueLabel: 'Valid until', serviceLabel: 'Proposed start', fromLabel: 'Prepared by', toLabel: 'Prepared for',
-      itemLabel: 'Proposed work', notes: 'This quotation is based on the scope described below and remains subject to availability.',
-      terms: 'Quote valid for 30 days. Work starts after written approval.', dueDays: 30
+      itemLabel: 'Proposed work', notes: '',
+      terms: '', dueDays: 30
     },
     proforma: {
       prefix: 'PRO', badge: 'NOT A TAX INVOICE', message: 'Advance information for payment — replace with a final tax invoice after supply.',
       issueLabel: 'Pro forma date', dueLabel: 'Pay by', serviceLabel: 'Expected supply', fromLabel: 'Supplier', toLabel: 'Customer',
-      itemLabel: 'Planned supply', notes: 'This pro forma document is issued for payment information only.',
-      terms: 'Goods or services will be confirmed after cleared payment. This is not a tax invoice.', dueDays: 7
+      itemLabel: 'Planned supply', notes: '',
+      terms: '', dueDays: 7
     },
     credit: {
       prefix: 'CRN', badge: 'CREDIT ADJUSTMENT', message: 'Credit against a previous invoice — show the original invoice reference.',
       issueLabel: 'Credit date', dueLabel: 'Credit applied by', serviceLabel: 'Original supply date', fromLabel: 'Issued by', toLabel: 'Credited to',
-      itemLabel: 'Reason for credit', notes: 'Credit issued against the original invoice reference shown on this document.',
-      terms: 'The credit will be refunded or applied to the customer account.', dueDays: 14
+      itemLabel: 'Reason for credit', notes: '',
+      terms: '', dueDays: 14
     },
     receipt: {
       prefix: 'RCT', badge: 'PAID', message: 'Confirms that payment has been received in full.',
       issueLabel: 'Receipt date', dueLabel: 'Paid on', serviceLabel: 'Payment for', fromLabel: 'Received by', toLabel: 'Received from',
-      itemLabel: 'Payment description', notes: 'Payment received with thanks.',
-      terms: 'No balance remains due for the items listed below.', dueDays: 0, paid: true
+      itemLabel: 'Payment description', notes: '',
+      terms: '', dueDays: 0, paid: true
     },
     deposit: {
       prefix: 'DEP', badge: 'DEPOSIT REQUEST', message: 'Requests an agreed upfront payment before the project or supply begins.',
       issueLabel: 'Request date', dueLabel: 'Deposit due', serviceLabel: 'Project start', fromLabel: 'Supplier', toLabel: 'Customer',
-      itemLabel: 'Deposit milestone', notes: 'This deposit secures the booking and will be deducted from the final invoice.',
-      terms: 'Deposit payable within 7 days. Work is scheduled after cleared payment.', dueDays: 7
+      itemLabel: 'Deposit milestone', notes: '',
+      terms: '', dueDays: 7
     },
     final: {
       prefix: 'FIN', badge: 'FINAL BALANCE', message: 'Closes the project and deducts deposits or staged payments already received.',
       issueLabel: 'Final invoice date', dueLabel: 'Final payment due', serviceLabel: 'Completion date', fromLabel: 'Supplier', toLabel: 'Bill to',
-      itemLabel: 'Completed stage', notes: 'Final invoice for the completed project. Previous payments are deducted below.',
-      terms: 'Final balance due within 7 days by bank transfer.', dueDays: 7, exampleDeposit: 600
+      itemLabel: 'Completed stage', notes: '',
+      terms: '', dueDays: 7, exampleDeposit: 600
     },
     commercial: {
       prefix: 'COM', badge: 'CUSTOMS DOCUMENT', message: 'Commercial goods document for international shipment and customs valuation.',
       issueLabel: 'Invoice date', dueLabel: 'Payment terms', serviceLabel: 'Dispatch date', fromLabel: 'Exporter', toLabel: 'Consignee',
-      itemLabel: 'Goods / commodity details', notes: 'Goods are supplied for commercial export. Country of origin: United Kingdom.',
-      terms: 'Incoterms: DAP. Values shown are for customs and payment purposes.', dueDays: 30, noVat: true
+      itemLabel: 'Goods / commodity details', notes: '',
+      terms: '', dueDays: 30, noVat: true
     },
     recurringInvoice: {
       prefix: 'REC', badge: 'RECURRING BILLING', message: 'Regular billing for the stated service period or subscription cycle.',
       issueLabel: 'Billing date', dueLabel: 'Payment due', serviceLabel: 'Billing period', fromLabel: 'Service provider', toLabel: 'Subscriber',
-      itemLabel: 'Recurring service', notes: 'Recurring charge for the service period shown on this invoice.',
-      terms: 'Payment due within 7 days. The service renews for the next billing cycle unless cancelled.', dueDays: 7
+      itemLabel: 'Recurring service', notes: '',
+      terms: '', dueDays: 7
     },
     interim: {
       prefix: 'INT', badge: 'PROGRESS PAYMENT', message: 'Interim valuation for work completed to date — not the final project account.',
       issueLabel: 'Valuation date', dueLabel: 'Progress payment due', serviceLabel: 'Work period', fromLabel: 'Contractor', toLabel: 'Client',
-      itemLabel: 'Progress stage', notes: 'Interim application for the completed portion of the project.',
-      terms: 'Payment due within 14 days. Remaining work will be included in later valuations.', dueDays: 14
+      itemLabel: 'Progress stage', notes: '',
+      terms: '', dueDays: 14
     },
     paymentRequest: {
       prefix: 'PAY', badge: 'PAYMENT REQUEST', message: 'A direct request for an agreed or outstanding amount to be paid.',
       issueLabel: 'Request date', dueLabel: 'Please pay by', serviceLabel: 'Related service date', fromLabel: 'Requested by', toLabel: 'Requested from',
-      itemLabel: 'Amount requested for', notes: 'Please arrange payment using the reference shown above.',
-      terms: 'Payment is requested by the due date. Contact the sender if any details need clarification.', dueDays: 7
+      itemLabel: 'Amount requested for', notes: '',
+      terms: '', dueDays: 7
     }
   };
 
@@ -221,7 +221,7 @@
       issueDate: 'Issue date', dueDate: 'Due date', serviceDate: 'Service date', from: 'From', to: 'Bill to',
       description: 'Description', quantity: 'Quantity', unit: 'Unit', rate: 'Rate', amount: 'Amount',
       subtotal: 'Subtotal', discount: 'Discount', vat: 'VAT', deposit: 'Deposit paid', amountDue: 'Amount due', total: 'Total', paidTotal: 'Paid total', creditTotal: 'Credit total', quoteTotal: 'Quote total', depositTotal: 'Deposit due', finalTotal: 'Final balance',
-      notes: 'Notes', terms: 'Payment terms', bank: 'Bank details', signature: 'Authorised signature'
+      notes: '', terms: '', bank: 'Bank details', signature: 'Authorised signature'
     },
     pl: {
       document: { invoice: 'Faktura', vat: 'Faktura VAT', quote: 'Wycena', proforma: 'Faktura pro forma', credit: 'Faktura korygująca', receipt: 'Rachunek', deposit: 'Faktura zaliczkowa', final: 'Faktura końcowa', commercial: 'Faktura handlowa', recurringInvoice: 'Faktura cykliczna', interim: 'Faktura częściowa', paymentRequest: 'Wezwanie do zapłaty' },
@@ -229,7 +229,7 @@
       issueDate: 'Data wystawienia', dueDate: 'Termin płatności', serviceDate: 'Data wykonania', from: 'Wystawca', to: 'Nabywca',
       description: 'Opis', quantity: 'Ilość', unit: 'Jednostka', rate: 'Stawka', amount: 'Suma',
       subtotal: 'Suma netto', discount: 'Rabat', vat: 'VAT', deposit: 'Zapłacona zaliczka', amountDue: 'Do zapłaty', total: 'Razem', paidTotal: 'Zapłacono', creditTotal: 'Wartość korekty', quoteTotal: 'Wartość wyceny', depositTotal: 'Zaliczka do zapłaty', finalTotal: 'Saldo końcowe',
-      notes: 'Uwagi', terms: 'Warunki płatności', bank: 'Dane bankowe', signature: 'Podpis wystawcy'
+      notes: '', terms: '', bank: 'Dane bankowe', signature: 'Podpis wystawcy'
     }
   };
 
@@ -282,9 +282,9 @@
       logoX: 88,
       logoY: 5,
       logoWidth: 116,
-      showBank: true,
-      showNotes: true,
-      showTerms: true,
+      showBank: false,
+      showNotes: false,
+      showTerms: false,
       showSignature: false,
       notes: '',
       terms: '',
@@ -298,6 +298,40 @@
   // Treat the old starter copy as examples, not saved invoice content.
   if (state.notes === 'Thank you for your business.' || state.notes === 'Thank you for your business. Please quote the invoice number with your payment.') state.notes = '';
   if (state.terms === 'Payment due within 14 days.' || state.terms === 'Payment due within 14 days by bank transfer.') state.terms = '';
+  // Remove old demo-only footer content while preserving genuine user-entered details.
+  const oldDemoNotes = new Set([
+    'VAT is charged at the rate shown in the totals section.',
+    'This quotation is based on the scope described below and remains subject to availability.',
+    'This pro forma document is issued for payment information only.',
+    'Credit issued against the original invoice reference shown on this document.',
+    'Payment received with thanks.',
+    'This deposit secures the booking and will be deducted from the final invoice.',
+    'Final invoice for the completed project. Previous payments are deducted below.',
+    'Goods are supplied for commercial export. Country of origin: United Kingdom.',
+    'Recurring charge for the service period shown on this invoice.',
+    'Interim application for the completed portion of the project.',
+    'Please arrange payment using the reference shown above.'
+  ]);
+  const oldDemoTerms = new Set([
+    'Payment due within 14 days. Please use the invoice number as the bank reference.',
+    'Quote valid for 30 days. Work starts after written approval.',
+    'Goods or services will be confirmed after cleared payment. This is not a tax invoice.',
+    'The credit will be refunded or applied to the customer account.',
+    'No balance remains due for the items listed below.',
+    'Deposit payable within 7 days. Work is scheduled after cleared payment.',
+    'Final balance due within 7 days by bank transfer.',
+    'Incoterms: DAP. Values shown are for customs and payment purposes.',
+    'Payment due within 7 days. The service renews for the next billing cycle unless cancelled.',
+    'Payment due within 14 days. Remaining work will be included in later valuations.',
+    'Payment is requested by the due date. Contact the sender if any details need clarification.'
+  ]);
+  if (oldDemoNotes.has(state.notes)) state.notes = '';
+  if (oldDemoTerms.has(state.terms)) state.terms = '';
+  if (state.bankName === 'Example Bank' && state.bankCode === '20-10-30' && state.bankAccount === '45871236') {
+    state.bankName = ''; state.bankCode = ''; state.bankAccount = ''; state.showBank = false;
+  }
+  if (!state.notes) state.showNotes = false;
+  if (!state.terms) state.showTerms = false;
   let saveTimer = null;
   let currentTool = 'hours';
   let previewRenderToken = 0;
@@ -380,7 +414,7 @@
         issueDate: 'Issue date / Data wystawienia', dueDate: 'Due date / Termin płatności', serviceDate: 'Service date / Data wykonania', from: 'From / Wystawca', to: 'Bill to / Nabywca',
         description: 'Description / Opis', quantity: 'Qty / Ilość', unit: 'Unit / Jedn.', rate: 'Rate / Stawka', amount: 'Amount / Suma',
         subtotal: 'Subtotal / Suma netto', discount: 'Discount / Rabat', vat: 'VAT', deposit: 'Deposit paid / Zaliczka', amountDue: 'Amount due / Do zapłaty', total: 'Total / Razem', paidTotal: 'Paid total / Zapłacono', creditTotal: 'Credit total / Korekta', quoteTotal: 'Quote total / Wycena', depositTotal: 'Deposit due / Zaliczka', finalTotal: 'Final balance / Saldo końcowe',
-        notes: 'Notes / Uwagi', terms: 'Payment terms / Warunki', bank: 'Bank details / Dane bankowe', signature: 'Signature / Podpis'
+        notes: '', terms: '', bank: 'Bank details / Dane bankowe', signature: 'Signature / Podpis'
       };
     }
     return languageLabels[state.documentLanguage] || languageLabels.en;
@@ -790,8 +824,13 @@
     const fitZoom = Math.min(availableWidth / 720, availableHeight / baseHeight, 1.05);
 
     let effectiveZoom = state.previewZoom;
-    if (window.matchMedia('(min-width: 1021px)').matches && !state.previewZoomManual) {
+    if (!state.previewZoomManual) {
       effectiveZoom = fitZoom;
+    }
+
+    // A zoom saved on a large screen must never open as an unusably cropped mobile preview.
+    if (window.matchMedia('(max-width: 1020px)').matches && state.previewZoomManual) {
+      effectiveZoom = Math.min(effectiveZoom, Math.max(fitZoom, Math.min(0.68, availableWidth / 720)));
     }
 
     effectiveZoom = Math.max(.35, Math.min(1.25, effectiveZoom));
@@ -1267,9 +1306,9 @@
       sellerAddress: '18 Market Street\nManchester M1 2AB',
       sellerCompanyNo: '14839201',
       sellerVatNo: profile.vat ? 'GB 412 3456 78' : '',
-      bankName: 'Example Bank',
-      bankCode: '20-10-30',
-      bankAccount: '45871236',
+      bankName: '',
+      bankCode: '',
+      bankAccount: '',
       clientName: selectedType === 'commercial' ? 'Nordmark Trading GmbH' : 'Acorn Client Ltd',
       clientEmail: selectedType === 'commercial' ? 'imports@nordmark.example' : 'finance@acorn-client.example',
       clientAddress: selectedType === 'commercial' ? 'Hafenstrasse 22\n20457 Hamburg\nGermany' : 'Unit 7, Commerce Park\nBirmingham B24 8HZ',
@@ -1280,9 +1319,11 @@
       template: templateByDocument[selectedType] || 'studio',
       accent: accentByDocument[selectedType] || '#4f46e5',
       ...branding,
-      showBank: !['quote','credit','receipt'].includes(selectedType),
-      notes: profile.notes,
-      terms: profile.terms
+      showBank: false,
+      showNotes: false,
+      showTerms: false,
+      notes: '',
+      terms: ''
     };
     renderAll();
     saveState(true);
@@ -1459,7 +1500,15 @@
       else if (action === 'apply-custom-colour') applyCustomColour($('#customAccentHex')?.value, true);
       else if (action === 'print-document') window.print();
       else if (action === 'copy-summary') copySummary();
-      else if (action === 'toggle-preview') $('#invoicePreview').closest('.preview-pane').classList.toggle('open');
+      else if (action === 'toggle-preview') {
+        const pane = $('#invoicePreview').closest('.preview-pane');
+        const opening = !pane.classList.contains('open');
+        pane.classList.toggle('open');
+        if (opening && window.matchMedia('(max-width: 1020px)').matches) {
+          state.previewZoomManual = false;
+          requestAnimationFrame(() => applyPreviewFit(Number($('#invoicePreview')?.dataset.baseHeight || 1018)));
+        }
+      }
     });
 
     $('#invoiceForm').addEventListener('input', handleStaticInput);

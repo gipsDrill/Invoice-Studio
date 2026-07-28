@@ -42,3 +42,10 @@ This build adds unrestricted document colour selection and a complete, portable 
 
 ## Version 1.11.4
 The live-preview toolbar now occupies its own fixed row above the invoice canvas, so it cannot cover the top of the document while the page or preview is scrolled.
+
+
+## Version 1.11.5
+- Fixed live preview sizing and scrolling on phones and tablets.
+- Mobile preview now opens fitted to the available screen.
+- Removed demo Notes, Payment Terms and Bank Details from all default examples.
+- These optional sections remain available for users who choose to enable and fill them.

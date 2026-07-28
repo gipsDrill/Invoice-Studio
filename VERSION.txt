@@ -1,1 +1,1 @@
-Invoice Studio 1.11.4 — Preview Toolbar Position Fix
+Invoice Studio 1.11.5 — Mobile Preview & Clean Defaults
