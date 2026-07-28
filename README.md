@@ -1,4 +1,4 @@
-# Invoice Studio 1.11.9
+# Invoice Studio 1.11.10
 
 A fast, English-language invoice and sales-document builder designed for non-technical users. The live preview is rendered by the same engine used for PDF, Word and Excel exports, so the downloaded document matches the preview.
 
@@ -53,3 +53,11 @@ The live-preview toolbar now occupies its own fixed row above the invoice canvas
 
 ## 1.11.9
 Removed all fixed, non-editable contextual slogans, status banners, billing taglines and generator branding from every invoice template. Essential invoice labels and all user-editable content remain.
+
+
+## 1.11.10
+
+- Fixed Smart Draft so ordinary free-text descriptions always create an editable draft.
+- Improved amount recognition for currency before or after a number.
+- Added a safe item ID fallback for browsers without `crypto.randomUUID()`.
+- Smart Draft now asks for a missing price instead of showing an error.

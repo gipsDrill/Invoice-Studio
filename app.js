@@ -5,6 +5,13 @@
   const SELLER_KEY = 'invoiceStudioSellerV1';
   const COUNTER_KEY = 'invoiceStudioCounterV1';
 
+  function makeItemId() {
+    try {
+      if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+    } catch (error) { /* use fallback below */ }
+    return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  }
+
   const documentTypes = [
     { id: 'invoice', icon: 'invoice', title: 'Invoice', subtitle: 'A standard invoice for services or products' },
     { id: 'vat', icon: 'vat', title: 'VAT Invoice', subtitle: 'An invoice with VAT and tax details' },
@@ -957,7 +964,7 @@
   }
 
   function addItem(item) {
-    state.items.push({ id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`, description: item.description || 'Item', quantity: num(item.quantity) || 1, unit: item.unit || 'item', rate: num(item.rate) });
+    state.items.push({ id: makeItemId(), description: item.description || 'Item', quantity: num(item.quantity) || 1, unit: item.unit || 'item', rate: num(item.rate) });
     renderItems();
     updatePreview();
     saveState();
@@ -1107,11 +1114,18 @@
     }
 
     if (!newItems.length) {
-      const oneAmount = input.match(/(?:£|€|\$|zł)\s*(\d+(?:[.,]\d+)?)/);
-      if (oneAmount) newItems.push({ description: cleanDescription(input, 'Service'), quantity: 1, unit: parseUnit(input), rate: num(oneAmount[1]) });
+      const oneAmount = input.match(/(?:£|€|\$|zł|pln)\s*(\d+(?:[.,]\d+)?)|(?:^|\s)(\d+(?:[.,]\d+)?)\s*(?:£|€|\$|zł|pln)(?:\s|$)/i);
+      const detectedAmount = oneAmount ? num(oneAmount[1] || oneAmount[2]) : 0;
+      newItems.push({
+        description: cleanDescription(input, 'Service'),
+        quantity: 1,
+        unit: parseUnit(input),
+        rate: detectedAmount
+      });
+      if (!detectedAmount) detected.push('editable item — add the price');
     }
 
-    newItems.forEach((item) => state.items.push({ ...item, id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}` }));
+    newItems.forEach((item) => state.items.push({ ...item, id: makeItemId() }));
     if (/rental|hire|equipment hire|vehicle hire/.test(lower) || newItems.some((item) => item.unit === 'rental')) state.workMode = 'rental';
     else if (/lesson|tuition|tutoring|coaching|appointment|therapy session|consultation session/.test(lower) || newItems.some((item) => ['session','visit'].includes(item.unit))) state.workMode = 'appointments';
     else if (/plumb|electric|repair|installation|construction|builder|call[- ]out|materials|site work/.test(lower)) state.workMode = 'trades';
@@ -1125,9 +1139,10 @@
 
     const result = $('#smartResult');
     result.hidden = false;
-    result.textContent = newItems.length ? `Added ${newItems.length} ${newItems.length === 1 ? 'item' : 'items'}. Recognised: ${detected.length ? detected.join(', ') : 'descriptions and amounts'}. Everything remains editable.` : 'No clear line items were found. Try “5 days at £220 and fuel £45”.';
+    const needsPrice = newItems.some((item) => num(item.rate) === 0);
+    result.textContent = `Added ${newItems.length} ${newItems.length === 1 ? 'item' : 'items'}. Recognised: ${detected.length ? detected.join(', ') : 'description'}. ${needsPrice ? 'Please review the description and enter any missing price.' : 'Everything remains editable.'}`;
     renderAll(); state.currentStep = 4; updateStepper(); saveState();
-    toast(newItems.length ? 'Draft created' : 'Try a simpler description', newItems.length ? 'All recognised details remain editable.' : 'Example: “10 products at £18 each and delivery £12”.', newItems.length ? 'success' : 'error');
+    toast('Draft created', needsPrice ? 'The item was added. Enter the missing price in the line item.' : 'All recognised details remain editable.', needsPrice ? 'info' : 'success');
   }
 
   function renderToolbox() {
@@ -1605,7 +1620,7 @@
       if (!raw) return;
       localStorage.removeItem('invoiceStudioPendingItemV1');
       const pending = JSON.parse(raw);
-      if (pending?.item) state.items.push({ id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`, ...pending.item });
+      if (pending?.item) state.items.push({ id: makeItemId(), ...pending.item });
       if (pending?.settings) Object.assign(state, pending.settings);
       state.currentStep = 4;
       toast('Calculator result added', 'The result is now an editable invoice item.');
