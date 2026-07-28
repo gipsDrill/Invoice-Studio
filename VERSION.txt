@@ -1,1 +1,1 @@
-1.11.2
+Invoice Studio 1.11.3 — Sticky Full Preview + Zoom Fix

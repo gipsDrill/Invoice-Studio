@@ -288,7 +288,8 @@
       showSignature: false,
       notes: '',
       terms: '',
-      previewZoom: 0.86
+      previewZoom: 0.86,
+      previewZoomManual: false
     };
   }
 
@@ -783,18 +784,22 @@
     const stage = $('.preview-stage');
     if (!preview || !stage) return;
 
+    const stageStyles = getComputedStyle(stage);
+    const availableWidth = Math.max(280, stage.clientWidth - parseFloat(stageStyles.paddingLeft) - parseFloat(stageStyles.paddingRight));
+    const availableHeight = Math.max(360, stage.clientHeight - parseFloat(stageStyles.paddingTop) - parseFloat(stageStyles.paddingBottom));
+    const fitZoom = Math.min(availableWidth / 720, availableHeight / baseHeight, 1.05);
+
     let effectiveZoom = state.previewZoom;
-    if (window.matchMedia('(min-width: 1021px)').matches) {
-      const stageStyles = getComputedStyle(stage);
-      const availableWidth = Math.max(280, stage.clientWidth - parseFloat(stageStyles.paddingLeft) - parseFloat(stageStyles.paddingRight));
-      const availableHeight = Math.max(360, stage.clientHeight - parseFloat(stageStyles.paddingTop) - parseFloat(stageStyles.paddingBottom));
-      const fitZoom = Math.min(availableWidth / 720, availableHeight / baseHeight, 1.05);
-      effectiveZoom = Math.min(state.previewZoom, fitZoom);
+    if (window.matchMedia('(min-width: 1021px)').matches && !state.previewZoomManual) {
+      effectiveZoom = fitZoom;
     }
 
-    effectiveZoom = Math.max(.35, effectiveZoom);
+    effectiveZoom = Math.max(.35, Math.min(1.25, effectiveZoom));
+    preview.dataset.effectiveZoom = String(effectiveZoom);
     document.documentElement.style.setProperty('--preview-scale', String(effectiveZoom));
     preview.style.marginBottom = `${(1 - effectiveZoom) * -baseHeight}px`;
+    stage.classList.toggle('zoom-overflow-x', 720 * effectiveZoom > availableWidth + 1);
+    stage.classList.toggle('zoom-overflow-y', baseHeight * effectiveZoom > availableHeight + 1);
     $('#zoomValue').textContent = `${Math.round(effectiveZoom * 100)}%`;
   }
 
@@ -1427,8 +1432,12 @@
       if (target.dataset.removeItem !== undefined) { state.items.splice(Number(target.dataset.removeItem), 1); renderItems(); updatePreview(); saveState(); return; }
       if (target.dataset.export) { await doExport(target.dataset.export); return; }
       if (target.dataset.zoom) {
-        state.previewZoom = Math.max(.45, Math.min(1.05, state.previewZoom + (target.dataset.zoom === 'in' ? .05 : -.05)));
-        updatePreview(); saveState(); return;
+        const preview = $('#invoicePreview');
+        const currentZoom = Number(preview?.dataset.effectiveZoom || state.previewZoom || .86);
+        state.previewZoom = Math.max(.35, Math.min(1.25, currentZoom + (target.dataset.zoom === 'in' ? .05 : -.05)));
+        state.previewZoomManual = true;
+        applyPreviewFit(Number(preview?.dataset.baseHeight || 1018));
+        saveState(); return;
       }
       if (target.dataset.tool) { currentTool = target.dataset.tool; $$('.tool-tabs button').forEach((button) => button.classList.toggle('active', button === target)); $$('.tool-panel').forEach((panel) => panel.classList.toggle('active', panel.dataset.toolPanel === currentTool)); updateToolResults(); return; }
       if (target.dataset.toolAction) { applyToolAction(target.dataset.toolAction); return; }
