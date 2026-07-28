@@ -1999,4 +1999,27 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
     left: max(8px, env(safe-area-inset-left)) !important;
     width: calc(100% - max(16px, env(safe-area-inset-left) + env(safe-area-inset-right) + 8px));
   }
+  .site-footer {
+  margin-top: 48px;
+  padding: 22px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #6f7483;
+  border-top: 1px solid rgba(120, 130, 155, 0.18);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  margin-left: 6px;
+  color: var(--accent, #5b55e7);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
 }
