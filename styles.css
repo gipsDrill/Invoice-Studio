@@ -1657,3 +1657,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .choice-card:hover,
   .template-card:hover { transform: none; }
 }
+.site-footer {
+  margin-top: 48px;
+  padding: 22px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #6f7483;
+  border-top: 1px solid rgba(120, 130, 155, 0.18);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  margin-left: 6px;
+  color: var(--accent, #5b55e7);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
