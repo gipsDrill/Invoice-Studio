@@ -1,4 +1,4 @@
-const CACHE = 'invoice-studio-v1.11.8-mobile-preview';
+const CACHE = 'invoice-studio-1.11.9-clean-editable-templates';
 const FILES = [
   './', './index.html', './calculators.html',
   './styles.css', './styles.css?v=1.11.8',

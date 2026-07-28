@@ -1,1 +1,1 @@
-Invoice Studio 1.11.8 — Mobile Layout & Live Preview Fix
+Invoice Studio 1.11.9 — Clean Editable Templates

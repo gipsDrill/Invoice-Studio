@@ -1230,10 +1230,12 @@
       bank: state.showBank ? [state.bankName, state.bankCode, state.bankAccount].filter(Boolean).join(' • ') : '',
       showSignature: state.showSignature, signatureLabel: l.signature,
       accent: state.accent, logoData: state.logoData, logoX: num(state.logoX), logoY: num(state.logoY), logoWidth: num(state.logoWidth), currencyCode: state.currency, template: state.template,
-      contextBadge: profile.badge, contextMessage: profile.message,
-      billingMode: state.workMode,
-      billingLabel: (billingProfiles[state.workMode] || billingProfiles.service).label,
-      billingTagline: (billingProfiles[state.workMode] || billingProfiles.service).tagline,
+      // Keep exported documents free from fixed, non-editable template copy.
+      // Only user-entered content and essential document labels are rendered.
+      contextBadge: '', contextMessage: '',
+      billingMode: '',
+      billingLabel: '',
+      billingTagline: '',
       itemLabels: { description: profile.itemLabel || l.description, quantity: l.quantity, unit: l.unit, rate: l.rate, amount: l.amount }
     };
   }

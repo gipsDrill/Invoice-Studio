@@ -638,7 +638,7 @@
     drawRule(ctx, cfg.margin, footerY - 8, BASE_WIDTH - cfg.margin, cfg.line, .75);
     ctx.fillStyle = cfg.muted; font(ctx, 7.8, 400, cfg.family); ctx.textBaseline = 'top';
     ctx.textAlign = 'left'; ctx.fillText(data.number || '', cfg.margin, footerY);
-    ctx.textAlign = 'right'; ctx.fillText('Generated with Invoice Studio', BASE_WIDTH - cfg.margin, footerY);
+    // No fixed generator branding: the footer contains only editable document data.
 
     if (data.logoData) {
       const image = await loadImage(data.logoData);
