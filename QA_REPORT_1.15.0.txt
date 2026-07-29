@@ -1,0 +1,11 @@
+Billora 1.15.0 QA REPORT
+
+Checked:
+- Today panel renders empty and populated states.
+- Today tasks open the correct invoice and scroll to the action workspace.
+- Review all switches to the Needs action filter.
+- Activity events render chronologically with type-specific icons.
+- New locally added invoices receive a Created timeline event.
+- Existing local data remains compatible.
+- Mobile layouts collapse Today tasks and activity timeline cleanly.
+- No account, backend, e-mail tracking or server-only feature was added.

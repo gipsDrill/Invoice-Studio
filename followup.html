@@ -7,7 +7,7 @@
   <title>Billora Follow-up — From invoice to payment</title>
   <meta name="description" content="Track invoice deadlines, approve payment reminders and keep a complete contact history with Billora Follow-up." />
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="followup.css?v=1.14.1" />
+  <link rel="stylesheet" href="followup.css?v=1.15.0" />
 </head>
 <body>
   <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
@@ -24,6 +24,16 @@
         <div class="hero-summary">
           <span class="summary-label">Outstanding</span><strong id="outstandingTotal">£0.00</strong><div><span id="actionHeroCount">0</span> invoices need attention</div>
         </div>
+      </section>
+
+
+      <section class="today-focus" aria-label="Today's priority actions">
+        <div class="today-heading">
+          <div><span class="eyebrow">Today</span><h2>Your next actions, already prioritised.</h2><p>Only invoices that genuinely need attention appear here.</p></div>
+          <div class="today-total"><strong id="todayCount">0</strong><span>actions</span><b id="todayValue">£0.00</b></div>
+        </div>
+        <div id="todayTasks" class="today-tasks"></div>
+        <button id="todayReviewAll" class="today-review">Open full action queue <span>→</span></button>
       </section>
 
       <section class="dashboard-grid" aria-label="Follow-up dashboard">
@@ -59,7 +69,7 @@
             <div class="next-action"><span>Recommended next action</span><h3 id="nextActionTitle">No action needed</h3><p id="nextActionText">This invoice is currently on track.</p><div class="next-buttons"><button class="primary full" id="generateReminderBtn">Prepare message</button><button class="secondary full" id="snoozeBtn">Remind me later</button></div></div>
             <div class="detail-grid"><div><span>Sent</span><strong id="detailSent">—</strong></div><div><span>Due date</span><strong id="detailDue">—</strong></div><div><span>Days overdue</span><strong id="detailDays">0</strong></div><div><span>Contact attempts</span><strong id="detailAttempts">0</strong></div></div>
             <div class="actions-row"><button id="markSentBtn">Mark sent</button><button id="markPaidBtn" class="success">Mark paid</button><button id="editInvoiceBtn">Edit details</button><button class="danger" id="deleteInvoiceBtn">Delete</button></div>
-            <div class="history"><div class="section-title"><div><h3>Contact history</h3><small>Every message you confirm and every note you add is time-stamped locally.</small></div><button id="addNoteBtn">+ Add note</button></div><div id="historyList"></div></div>
+            <div class="history"><div class="section-title"><div><h3>Activity timeline</h3><small>A clear chronological record of every action around this invoice.</small></div><button id="addNoteBtn">+ Add note</button></div><div id="historyList" class="activity-timeline"></div></div>
           </div>
         </aside>
       </section>
@@ -94,6 +104,6 @@
   <dialog id="snoozeDialog"><form method="dialog"><div class="dialog-head"><div><span class="eyebrow">Pause this action</span><h2>Remind me later</h2></div><button value="cancel" class="icon">×</button></div><div class="snooze-options"><button value="tomorrow" data-snooze="1">Tomorrow</button><button value="three" data-snooze="3">In 3 days</button><button value="week" data-snooze="7">In one week</button></div></form></dialog>
 
   <div id="toast" class="toast" hidden></div>
-  <script src="followup.js?v=1.14.1"></script>
+  <script src="followup.js?v=1.15.0"></script>
 </body>
 </html>

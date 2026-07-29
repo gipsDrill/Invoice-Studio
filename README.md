@@ -72,3 +72,9 @@ Messages are never sent automatically. The user reviews and approves them, then 
 ## Local-only scope in 1.14.1
 
 Invoice Follow-up requires no account or backend. Dates, statuses, suggestions, message drafts, notes, contact history, risk indicators, reports and backups are calculated or stored locally in the browser. Billora does not send e-mails, verify delivery or opens, sync across devices, monitor bank payments, or run reminders while the site is closed. The user confirms sent and paid states manually.
+
+
+## Version 1.15.0
+- Added a compact Today panel that surfaces only invoices requiring action.
+- Added a visual activity timeline for each invoice, replacing the old flat contact-history list.
+- All functionality remains local-only and requires no user accounts or server.
