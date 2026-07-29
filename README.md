@@ -61,3 +61,14 @@ Removed all fixed, non-editable contextual slogans, status banners, billing tagl
 - Improved amount recognition for currency before or after a number.
 - Added a safe item ID fallback for browsers without `crypto.randomUUID()`.
 - Smart Draft now asks for a missing price instead of showing an error.
+
+## Invoice Follow-up (v1.14.0)
+
+Billora now includes a local-first invoice follow-up dashboard. It tracks sent dates and due dates, derives Sent / Due soon / Overdue / Paid statuses, recommends next actions, prepares stage-appropriate messages for user approval, logs contact history, supports snoozing, simple client payment-risk indicators, CSV reporting and JSON backup/restore.
+
+Messages are never sent automatically. The user reviews and approves them, then can copy the text or open their default e-mail application. Data remains in the browser unless exported by the user.
+
+
+## Local-only scope in 1.14.1
+
+Invoice Follow-up requires no account or backend. Dates, statuses, suggestions, message drafts, notes, contact history, risk indicators, reports and backups are calculated or stored locally in the browser. Billora does not send e-mails, verify delivery or opens, sync across devices, monitor bank payments, or run reminders while the site is closed. The user confirms sent and paid states manually.

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#171a31" />
+  <title>Billora Follow-up — From invoice to payment</title>
+  <meta name="description" content="Track invoice deadlines, approve payment reminders and keep a complete contact history with Billora Follow-up." />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="followup.css?v=1.14.1" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><img src="assets/icon.svg" alt=""><span><strong>Billora</strong><small>Invoice Follow-up</small></span></a>
+      <nav aria-label="Main navigation"><a href="index.html">Create document</a><a class="active" href="followup.html">Follow-up</a><a href="calculators.html">Calculators</a></nav>
+      <div class="top-actions"><button class="ghost" id="settingsBtn">Reminder rules</button><button class="primary" id="addInvoiceBtn">+ Add invoice</button></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div><span class="eyebrow">Invoice follow-up</span><h1>From invoice sent to payment received.</h1><p>Billora keeps deadlines, suggested messages and contact notes in one simple local workflow. Everything stays on this device. Billora prepares text for your approval, but never sends or verifies anything by itself.</p></div>
+        <div class="hero-summary">
+          <span class="summary-label">Outstanding</span><strong id="outstandingTotal">£0.00</strong><div><span id="actionHeroCount">0</span> invoices need attention</div>
+        </div>
+      </section>
+
+      <section class="dashboard-grid" aria-label="Follow-up dashboard">
+        <article class="metric metric-main"><div class="metric-top"><span>Collection progress</span><strong id="collectionRate">0%</strong></div><div class="ring-wrap"><div class="progress-ring" id="progressRing"><span id="ringValue">0%</span></div><div class="metric-copy"><b id="paidValue">£0.00 paid</b><small id="totalValue">£0.00 total tracked</small></div></div></article>
+        <article class="metric"><span class="metric-icon sent">↗</span><div><strong id="sentCount">0</strong><small>Sent</small></div><em id="sentValue">£0.00</em></article>
+        <article class="metric"><span class="metric-icon soon">◷</span><div><strong id="dueSoonCount">0</strong><small>Due soon</small></div><em id="soonValue">£0.00</em></article>
+        <article class="metric"><span class="metric-icon overdue">!</span><div><strong id="overdueCount">0</strong><small>Overdue</small></div><em id="overdueValue">£0.00</em></article>
+        <article class="metric"><span class="metric-icon paid">✓</span><div><strong id="paidCount">0</strong><small>Paid</small></div><em id="paidMetricValue">£0.00</em></article>
+        <article class="metric metric-action"><span class="metric-icon action">✦</span><div><strong id="needsActionCount">0</strong><small>Need action today</small></div><button id="reviewActionsBtn">Review queue</button></article>
+      </section>
+
+      <section class="insights-row">
+        <article class="insight-card"><div><span class="eyebrow">Next 14 days</span><h2>Payment timeline</h2></div><div id="timelineBars" class="timeline-bars"></div></article>
+        <article class="insight-card"><div><span class="eyebrow">Local overview</span><h2>What needs attention</h2></div><div id="attentionSummary" class="attention-summary"></div></article>
+      </section>
+
+      <section class="workspace">
+        <div class="panel invoices-panel">
+          <div class="panel-head">
+            <div><span class="eyebrow">Invoices</span><h2>Follow-up queue</h2><p>Statuses update automatically from due dates.</p></div>
+            <div class="panel-controls"><label class="search"><span>⌕</span><input id="searchInput" placeholder="Search invoice or client"></label><div class="filters" id="filters"><button class="active" data-filter="all">All</button><button data-filter="action">Needs action</button><button data-filter="overdue">Overdue</button><button data-filter="paid">Paid</button></div></div>
+          </div>
+          <div class="table-head"><span>Invoice / client</span><span>Amount / due date</span><span>Status</span><span>Next action</span><span></span></div>
+          <div id="invoiceList" class="invoice-list"></div>
+          <footer class="panel-footer"><button class="link-btn" id="exportBtn">Export follow-up report</button><button class="link-btn" id="backupBtn">Backup data</button><label class="link-btn file-label">Restore backup<input id="restoreInput" type="file" accept="application/json"></label></footer>
+        </div>
+
+        <aside class="panel action-panel">
+          <div id="emptyState" class="empty-state"><div class="empty-icon">✓</div><h2>Everything in one place</h2><p>Select an invoice to review its next action, approve a message and see the complete contact history.</p></div>
+          <div id="invoiceDetail" hidden>
+            <div class="detail-head"><div><span id="detailStatus" class="status-pill">Draft</span><h2 id="detailNumber">Invoice</h2><p id="detailClient">Client</p></div><strong id="detailAmount">£0.00</strong></div>
+            <div class="risk-line"><span>Client payment pattern</span><strong id="riskBadge" class="risk low">Low risk</strong></div>
+            <div class="next-action"><span>Recommended next action</span><h3 id="nextActionTitle">No action needed</h3><p id="nextActionText">This invoice is currently on track.</p><div class="next-buttons"><button class="primary full" id="generateReminderBtn">Prepare message</button><button class="secondary full" id="snoozeBtn">Remind me later</button></div></div>
+            <div class="detail-grid"><div><span>Sent</span><strong id="detailSent">—</strong></div><div><span>Due date</span><strong id="detailDue">—</strong></div><div><span>Days overdue</span><strong id="detailDays">0</strong></div><div><span>Contact attempts</span><strong id="detailAttempts">0</strong></div></div>
+            <div class="actions-row"><button id="markSentBtn">Mark sent</button><button id="markPaidBtn" class="success">Mark paid</button><button id="editInvoiceBtn">Edit details</button><button class="danger" id="deleteInvoiceBtn">Delete</button></div>
+            <div class="history"><div class="section-title"><div><h3>Contact history</h3><small>Every message you confirm and every note you add is time-stamped locally.</small></div><button id="addNoteBtn">+ Add note</button></div><div id="historyList"></div></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="invoiceDialog">
+    <form method="dialog" id="invoiceForm">
+      <div class="dialog-head"><div><span class="eyebrow">Track an invoice</span><h2 id="invoiceDialogTitle">Add invoice</h2></div><button value="cancel" class="icon">×</button></div>
+      <input id="fId" type="hidden">
+      <div class="form-grid"><label>Invoice number<input id="fNumber" required></label><label>Client name<input id="fClient" required></label><label>Amount<input id="fAmount" type="number" min="0" step="0.01" required></label><label>Currency<select id="fCurrency"><option>GBP</option><option>EUR</option><option>USD</option><option>PLN</option></select></label><label>Issue date<input id="fIssue" type="date" required></label><label>Due date<input id="fDue" type="date" required></label><label>Status<select id="fStatus"><option value="draft">Draft</option><option value="sent">Sent</option><option value="paid">Paid</option></select></label><label>Client email<input id="fEmail" type="email"></label><label class="span-2">Purchase order / reference<input id="fReference" placeholder="Optional"></label></div>
+      <menu><button value="cancel">Cancel</button><button value="default" class="primary" id="saveInvoiceBtn">Save invoice</button></menu>
+    </form>
+  </dialog>
+
+  <dialog id="reminderDialog">
+    <form method="dialog"><div class="dialog-head"><div><span class="eyebrow">Review before using</span><h2>Payment message</h2></div><button value="cancel" class="icon">×</button></div>
+      <div class="tone-tabs" id="toneTabs"><button type="button" data-tone="friendly">Friendly</button><button type="button" data-tone="neutral" class="active">Professional</button><button type="button" data-tone="firm">Firm</button></div>
+      <label class="message-label">Recipient<input id="reminderRecipient"></label><label class="message-label">Subject<input id="reminderSubject"></label><label class="message-label">Message<textarea id="reminderBody" rows="11"></textarea></label>
+      <div class="message-check"><label><input id="logAsSent" type="checkbox" checked> I will confirm this message in the local history</label></div>
+      <menu><button value="cancel">Close</button><button value="copy" id="copyReminderBtn">Copy only</button><button value="email" class="secondary" id="emailReminderBtn">Open in e-mail app</button><button value="approve" class="primary" id="approveReminderBtn">Approve & log</button></menu></form>
+  </dialog>
+
+  <dialog id="settingsDialog">
+    <form method="dialog"><div class="dialog-head"><div><span class="eyebrow">Local reminder rules</span><h2>When Billora should suggest an action</h2></div><button value="cancel" class="icon">×</button></div>
+      <p class="dialog-copy">These rules are calculated locally from the dates you enter. Billora does not run a server, monitor an inbox, send messages or check whether a client received them.</p>
+      <div class="rules-grid"><label>Friendly reminder before due date<select id="sBefore"><option value="0">On due date only</option><option value="1">1 day before</option><option value="3">3 days before</option><option value="5">5 days before</option><option value="7">7 days before</option></select></label><label>First overdue reminder<select id="sFirst"><option value="1">1 day overdue</option><option value="3">3 days overdue</option><option value="5">5 days overdue</option></select></label><label>Firm reminder<select id="sFirm"><option value="7">7 days overdue</option><option value="10">10 days overdue</option><option value="14">14 days overdue</option></select></label><label>Escalation review<select id="sEscalate"><option value="14">14 days overdue</option><option value="21">21 days overdue</option><option value="30">30 days overdue</option></select></label></div>
+      <menu><button value="cancel">Cancel</button><button value="save" class="primary" id="saveSettingsBtn">Save rules</button></menu>
+    </form>
+  </dialog>
+
+  <dialog id="snoozeDialog"><form method="dialog"><div class="dialog-head"><div><span class="eyebrow">Pause this action</span><h2>Remind me later</h2></div><button value="cancel" class="icon">×</button></div><div class="snooze-options"><button value="tomorrow" data-snooze="1">Tomorrow</button><button value="three" data-snooze="3">In 3 days</button><button value="week" data-snooze="7">In one week</button></div></form></dialog>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="followup.js?v=1.14.1"></script>
+</body>
+</html>

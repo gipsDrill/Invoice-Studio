@@ -1510,6 +1510,15 @@
       else if (action === 'smart-generate') smartParse();
       else if (action === 'open-toolbox') openToolbox();
       else if (action === 'close-toolbox') closeToolbox();
+      else if (action === 'track-invoice') {
+        const totals = calculateTotals();
+        const amount = state.documentType === 'receipt' ? totals.total : ['quote','proforma','credit'].includes(state.documentType) ? totals.total : totals.amountDue;
+        localStorage.setItem('billoraFollowupPendingV1', JSON.stringify({
+          number: state.invoiceNumber || '', client: state.clientName || '', email: state.clientEmail || '', amount,
+          currency: state.currency || 'GBP', issueDate: state.issueDate || '', dueDate: state.dueDate || '', status: 'draft'
+        }));
+        window.location.href = 'followup.html';
+      }
       else if (action === 'save-seller') saveSellerProfile();
       else if (action === 'paste-client') await pasteClient();
       else if (action === 'remove-logo') { state.logoData = ''; setLogoMoveMode(false); saveState(); }

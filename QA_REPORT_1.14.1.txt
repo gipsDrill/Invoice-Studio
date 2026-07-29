@@ -1,0 +1,15 @@
+Billora 1.14.1 — Local-Only Invoice Follow-up
+
+Checks completed:
+- JavaScript syntax validated for app.js and followup.js.
+- Follow-up dashboard works without user accounts or backend services.
+- Removed browser notification permission and notification code.
+- Removed demo invoice seeding from first launch.
+- Reminder rules are calculated locally from issue and due dates.
+- Draft, Sent, Due soon, Overdue and Paid statuses are derived locally.
+- Message drafts are generated locally and require user confirmation.
+- Opening an e-mail app is not treated as proof that an e-mail was sent.
+- Contact history, notes, snoozing and payment status remain manual/local.
+- CSV export and JSON backup/restore remain available locally.
+- No delivery tracking, read receipts, bank monitoring, cloud sync or background server reminders are claimed or implemented.
+- PWA cache version updated to 1.14.1.
